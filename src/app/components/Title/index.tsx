@@ -12,9 +12,10 @@ enum HeadingLevel {
 interface TitleProps {
   text: string;
   level: HeadingLevel;
+  className?: string;
 }
 
-const Title: React.FC<TitleProps> = ({ text, level }) => {
+const Title: React.FC<TitleProps> = ({ text, level, className }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
   const headingClasses = {
@@ -26,7 +27,7 @@ const Title: React.FC<TitleProps> = ({ text, level }) => {
     6: 'text-base mb-1',
   };
 
-  return <Tag className={headingClasses[level]}>{text}</Tag>;
+  return <Tag className={`${headingClasses[level]} ${className}`}>{text}</Tag>;
 }
 
 export { Title, HeadingLevel };

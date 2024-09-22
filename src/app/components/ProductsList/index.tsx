@@ -1,6 +1,5 @@
 "use client"
 import React from "react";
-import Image from 'next/image';
 import { Title, HeadingLevel} from '../Title';
 import useFetchProducts from '../../hooks/useFetchProducts';
 
@@ -11,18 +10,15 @@ const ProductsList = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            <Title text={product.name} level={HeadingLevel.H2} />
-            <p>Brand: {product.brand}</p>
-            <p>Category: {product.category}</p>
-            <Image src={product.image} alt={product.name} width={100} height={100} />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="w-full grid grid-cols-2 md:grid-cols-3 gap-4">
+      {products.map(product => (
+        <li key={product.id} className="block p-6 bg-white border border-gray-200 rounded-lg shadow transition-all duration-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-pink-600 dark:hover:bg-gray-700">
+          <Title text={product.name} level={HeadingLevel.H2} className="truncate" />
+          <p>Brand: {product.brand}</p>
+          <p>Category: {product.category}</p>
+        </li>
+      ))}
+    </ul>
   );
 }
 
