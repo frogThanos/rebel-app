@@ -1,5 +1,5 @@
 import { Title, HeadingLevel } from '@/app/components/Title';
-import ProductsList from './components/ProductsList';
+import ProductsList from '@/app/components/ProductsList';
 
 export default function Home() {
   return (
