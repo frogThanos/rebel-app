@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Product as ProductType } from '@/app/hooks/useFetchProducts'
-
-
+import apiService from "../services/apiService";
 
 const useFetchProduct = () => {
   const [product, setProduct] = useState<ProductType | null>(null);
@@ -13,13 +12,8 @@ const useFetchProduct = () => {
     if (id) {
       const fetchProduct = async () => {
         try {
-          const response = await fetch(`http://localhost:3001/products/${id}`);
-          if (!response.ok) {
-            throw new Error('Product not found');
-          }
-          const data = await response.json();
-          console.log('data: ', data);
-          setProduct(data);
+          const fetchedData = await apiService.getById<ProductType>('http://localhost:3001/products', id);
+          setProduct(fetchedData);
         } catch (err: unknown) {
           if (err instanceof Error) {
             setError(err.message);

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import apiService from "../services/apiService";
 
 interface Specifications {
   [key: string]: string;
@@ -20,12 +21,8 @@ const useFetchProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:3001/products');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      setProducts(data);
+      const fetchedData = await apiService.getAll<Product>('http://localhost:3001/products');
+      setProducts(fetchedData);
       setError(null);
     } catch (err: unknown) {
       if (err instanceof Error) {
