@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 
 interface Specifications {
-  batteryLife: string;
-  suctionPower: string;
-  connectivity: string;
+  [key: string]: string;
 }
 
 export interface Product {
