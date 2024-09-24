@@ -37,7 +37,7 @@ describe('apiService', () => {
       json: jest.fn().mockResolvedValueOnce(mockItem),
     });
 
-    const result = await apiService.getById<typeof mockItem>(baseUrl, '1');
+    const result = await apiService.getById<typeof mockItem>(baseUrl, 1);
 
     expect(fetch).toHaveBeenCalledWith(`${baseUrl}/1`);
     expect(result).toEqual(mockItem);
@@ -46,7 +46,7 @@ describe('apiService', () => {
   it('should throw an error when fetching a single item fails', async () => {
     (fetch as jest.Mock).mockResolvedValueOnce({ ok: false });
 
-    await expect(apiService.getById(baseUrl, '1')).rejects.toThrow(
+    await expect(apiService.getById(baseUrl, 1)).rejects.toThrow(
       `Failed to fetch item with id 1 from ${baseUrl}`
     );
   });

@@ -12,7 +12,8 @@ const useFetchProduct = () => {
     if (id) {
       const fetchProduct = async () => {
         try {
-          const fetchedData = await apiService.getById<ProductType>('http://localhost:3001/products', id);
+          const idToNumber = Number(id);
+          const fetchedData = await apiService.getById<ProductType>('http://localhost:3001/products', idToNumber);
           setProduct(fetchedData);
         } catch (err: unknown) {
           if (err instanceof Error) {

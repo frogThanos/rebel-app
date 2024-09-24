@@ -9,7 +9,7 @@ const apiService = {
     return response.json();
   },
 
-  getById: async <T>(baseUrl: string, id: string): Promise<T> => {
+  getById: async <T>(baseUrl: string, id: number): Promise<T> => {
     const response = await fetch(`${baseUrl}/${id}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch item with id ${id} from ${baseUrl}`);
