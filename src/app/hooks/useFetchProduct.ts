@@ -6,6 +6,7 @@ const useFetchProduct = () => {
   const [product, setProduct] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
   useEffect(() => {
     const id = window.location.pathname.split('/').pop(); 
@@ -13,7 +14,7 @@ const useFetchProduct = () => {
       const fetchProduct = async () => {
         try {
           const idToNumber = Number(id);
-          const fetchedData = await apiService.getById<ProductType>('http://localhost:3001/products', idToNumber);
+          const fetchedData = await apiService.getById<ProductType>(apiUrl, idToNumber);
           setProduct(fetchedData);
         } catch (err: unknown) {
           if (err instanceof Error) {

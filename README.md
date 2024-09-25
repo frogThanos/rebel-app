@@ -1,8 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## How to Start the App:
 
-## Getting Started
-
-First, run the development server:
+### First, run the development server 🐹
 
 ```bash
 npm run dev
@@ -16,21 +14,34 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Then, run the json-server to fetch the sweet data ✨
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run server
+```
 
-## Learn More
+Open [http://localhost:3001](http://localhost:3001) with your browser to see the server.
 
-To learn more about Next.js, take a look at the following resources:
+### Finally, run the unit tests to ensure everything is solid 🛠️
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run test
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## My Creative Journey
 
-## Deploy on Vercel
+It’s been over three years since I last worked on a React project, and I must say, diving back in has been both fun and challenging! 🙂 I dedicated most of my time to this project over the past weekend and a few evenings this week. Given the requirement for React and TypeScript, I opted for Next.js as my framework since it comes pre-configured with both.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To expedite my UI development, I also decided to use Tailwind CSS, which has made the styling process much smoother. But to be honest it was my first time using it and I'm not sure I would use it again, adding all those classes to my elements resulting in those long strings reminded me of inline css styling developers did once upon a time, it didn't look or feel clean to me. If I was working on a longterm project I would setup my own CSS and opt for [BEM](https://getbem.com/).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For state management, I decided to use hooks instead of a more complex library like Redux. I wanted to avoid the boilerplate code associated with Redux, which involves setting up stores, actions, and reducers, especially since I wasn’t sure if I would need that level of complexity.
+
+However, while working on the SearchBar, I initially placed it in the root pages.tsx file between the Title and the ProductList components. I attempted to use the hook there, but unfortunately, the products list wouldn’t update as I typed in the SearchBar. In hindsight, having a global state would have been beneficial in that situation! 😆 As a quick fix, I moved the SearchBar into the ProductList component. While this resolved the immediate issue, it did lead to some layout shifting when typing in the SearchBar.
+
+One issue I encountered while fetching products is that the image URLs are no longer functional. Unsplash recently updated their API for random images, and the URL https://source.unsplash.com/random/600x600?laptop in db.json is no longer valid. Now, to access random images, you need to create a developer account, obtain an API key, and utilize their libraries as outlined in the Unsplash [documentation](https://unsplash.com/documentation#libraries--sdks).
+
+As a quick fix, I decided to use https://placehold.co instead to provide placeholder images.
+
+## Future Adjustments
+
+If I had more time I would finish the wishlists

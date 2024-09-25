@@ -20,10 +20,11 @@ const useFetchProducts = () => {
   const [error, setError] = useState<string | null>(null);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
   const fetchProducts = async () => {
     try {
-      const fetchedData = await apiService.getAll<Product>('http://localhost:3001/products');
+      const fetchedData = await apiService.getAll<Product>(apiUrl);
       setProducts(fetchedData);
       setError(null);
     } catch (err: unknown) {

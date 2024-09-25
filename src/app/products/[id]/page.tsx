@@ -14,7 +14,7 @@ const ProductPage = () => {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-center">
-          <img src={product.image} alt={product.name} className="w-full max-w-sm rounded-lg shadow-lg" />
+          <img src='https://placehold.co/600x600' alt={product.name} className="w-full max-w-sm rounded-lg shadow-lg" />
         </div>
         <div>
           <h1 className="text-3xl font-bold mb-4">{product.name}</h1>

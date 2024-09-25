@@ -8,8 +8,8 @@ export default function Home() {
         <Title text="List of products" level={HeadingLevel.H1} />
         <ProductsList />
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        empty footer for now
+      <footer className="row-start-3 text-xl flex gap-6 flex-wrap items-center justify-center">
+        Made By Athanasios
       </footer>
     </div>
   );
