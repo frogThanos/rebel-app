@@ -18,6 +18,8 @@ const useFetchProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const fetchProducts = async () => {
     try {
@@ -39,7 +41,15 @@ const useFetchProducts = () => {
     fetchProducts();
   }, []);
 
-  return { products, loading, error, fetchProducts };
+    // Effect to filter products when the search query changes
+    useEffect(() => {
+      const filtered = products.filter((product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    }, [searchQuery, products]);
+
+  return { products: filteredProducts, loading, error, fetchProducts, setSearchQuery, searchQuery };
 
 }
 
