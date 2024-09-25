@@ -42,6 +42,8 @@ One issue I encountered while fetching products is that the image URLs are no lo
 
 As a quick fix, I decided to use https://placehold.co instead to provide placeholder images.
 
+Regarding unit tests I opted for testsing important things like the apiService.
+
 ## Future Adjustments
 
 If I had more time I would finish the wishlists

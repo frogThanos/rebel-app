@@ -25,7 +25,6 @@ const ProductsList = () => {
           <p>Category: {product.category}</p>
         </li>
         </Link>
-
       ))}
     </ul>
     </>
