@@ -42,7 +42,7 @@ One issue I encountered while fetching products is that the image URLs are no lo
 
 As a quick fix, I decided to use https://placehold.co instead to provide placeholder images.
 
-Regarding unit tests I opted for testsing important things like the apiService.
+One last point: I don’t consider myself particularly creative when it comes to designing. The project documentation specified that my app should be inspired by the Rebels website, so I incorporated elements such as the font, the icon, a black background, and some pink hover effects to align with that aesthetic.
 
 ## Future Adjustments
 
