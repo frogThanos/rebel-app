@@ -1,11 +1,8 @@
-// ProductsList.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import ProductsList from "./index";
 import useFetchProducts from "../../hooks/useFetchProducts";
 
-// Mock the useFetchProducts hook
 jest.mock("../../hooks/useFetchProducts");
 
 describe("ProductsList Component", () => {
@@ -15,7 +12,6 @@ describe("ProductsList Component", () => {
   ];
 
   beforeEach(() => {
-    // Reset the mock before each test
     jest.clearAllMocks();
   });
 
