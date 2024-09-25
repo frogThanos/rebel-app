@@ -46,4 +46,6 @@ One last point: I don’t consider myself particularly creative when it comes to
 
 ## Future Adjustments
 
-If I had more time I would finish the wishlists
+If I had more time, I would complete the wishlist feature. Currently, the UI is quite lackluster, and users can only create and delete wishlists without the ability to add products.
+
+I would also transition from using hooks to Redux for state management, as the functionalities of the app turned out to be more complex than I initially anticipated.
